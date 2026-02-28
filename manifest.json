@@ -1,0 +1,11 @@
+{
+  "name": "PR-TECH BOBO V3",
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "parts": [
+        { "path": "PRTECH_BOBO_V3.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
