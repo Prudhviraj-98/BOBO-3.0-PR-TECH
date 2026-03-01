@@ -11,41 +11,39 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
+  background: white;
+  color: #ff6600;
 }
 
 header {
   text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(90deg, #ff6600, #ff3300);
+  padding: 60px 20px;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 36px;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
 }
 
 section {
-  padding: 40px 20px;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
+  padding: 30px 20px;
 }
 
 .card {
-  background: #1a1a1a;
-  padding: 20px;
-  margin-bottom: 20px;
+  border: 2px solid #ff6600;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+  padding: 25px;
+  margin-bottom: 25px;
 }
 
 h2 {
-  color: #ff6600;
-}
-
-button, esp-web-install-button {
-  margin-top: 15px;
+  margin-top: 0;
 }
 
 .pin-table {
@@ -54,21 +52,20 @@ button, esp-web-install-button {
 }
 
 .pin-table th, .pin-table td {
-  border: 1px solid #333;
+  border: 1px solid #ff6600;
   padding: 10px;
   text-align: left;
 }
 
 .pin-table th {
   background: #ff6600;
+  color: white;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  background: #111;
-  font-size: 14px;
-  color: #aaa;
+  padding: 40px 20px;
+  font-size: 16px;
 }
 </style>
 </head>
@@ -77,38 +74,36 @@ footer {
 
 <header>
   <h1>PR-TECH BOBO V3</h1>
-  <p>ESP32-C3 Super Mini Smart OLED System</p>
+  <p>ESP32-C3 Smart OLED System</p>
 </header>
 
 <section>
+
   <div class="card">
-    <h2>🚀 Install Firmware</h2>
-    <p>Click below and flash directly from Chrome Browser.</p>
+    <h2>Install Firmware</h2>
+    <p>Flash directly from Google Chrome (PC or Android).</p>
 
     <esp-web-install-button manifest="manifest.json">
     </esp-web-install-button>
 
-    <p><small>Use Google Chrome (PC or Android)</small></p>
+    <p><small>Use Chrome Browser Only</small></p>
   </div>
 
   <div class="card">
-    <h2>✨ Features</h2>
-    <ul>
-      <li>Animated BOBO Eyes</li>
-      <li>Weather Display</li>
-      <li>Clock + Timer + Alarm</li>
-      <li>WiFi Setup</li>
-      <li>Version Display</li>
-    </ul>
+    <h2>Display Specification</h2>
+    <p>SH1106 OLED Display</p>
+    <p>Size: 1.3 Inch</p>
+    <p>Resolution: 128x64</p>
+    <p>Interface: I2C</p>
   </div>
 
   <div class="card">
-    <h2>🔌 Pin Definitions (ESP32-C3 Super Mini)</h2>
+    <h2>Pin Definitions (ESP32-C3 Super Mini)</h2>
 
     <table class="pin-table">
       <tr>
         <th>Component</th>
-        <th>ESP32-C3 Pin</th>
+        <th>GPIO</th>
       </tr>
       <tr>
         <td>OLED SDA</td>
@@ -119,16 +114,8 @@ footer {
         <td>GPIO 5</td>
       </tr>
       <tr>
-        <td>Button NEXT</td>
-        <td>GPIO 2</td>
-      </tr>
-      <tr>
-        <td>Button PREV</td>
+        <td>Control Button</td>
         <td>GPIO 3</td>
-      </tr>
-      <tr>
-        <td>Buzzer</td>
-        <td>GPIO 6</td>
       </tr>
       <tr>
         <td>VCC</td>
@@ -142,26 +129,28 @@ footer {
   </div>
 
   <div class="card">
-    <h2>🛠 How To Build</h2>
+    <h2>How To Build</h2>
     <ol>
-      <li>Connect OLED (SDA → GPIO4, SCL → GPIO5)</li>
-      <li>Connect buttons to defined GPIO pins</li>
-      <li>Connect buzzer to GPIO6</li>
+      <li>Connect SH1106 SDA → GPIO 4</li>
+      <li>Connect SH1106 SCL → GPIO 5</li>
+      <li>Connect Button → GPIO 3</li>
+      <li>Connect VCC → 3.3V and GND → GND</li>
       <li>Power ESP32-C3 via USB</li>
-      <li>Flash firmware using Install button above</li>
-      <li>Done ✅</li>
+      <li>Click Install Firmware above</li>
+      <li>Done</li>
     </ol>
   </div>
 
   <div class="card">
-    <h2>📦 Version</h2>
-    <p>Firmware: BOBO V3.0</p>
+    <h2>Firmware Version</h2>
+    <p>BOBO V3.0</p>
     <p>By PR-TECH</p>
   </div>
+
 </section>
 
 <footer>
-© 2026 PR-TECH | ESP32-C3 Firmware Distribution System
+Instagram: @_pr_tech
 </footer>
 
 </body>
