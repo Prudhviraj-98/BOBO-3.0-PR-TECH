@@ -15,16 +15,39 @@ html {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: white;
+  background: linear-gradient(135deg, #ffffff 0%, #eaf6ff 100%);
+  color: #ff6600;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  padding: 160px 20px 140px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #dff3ff, #ffffff 60%);
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin: 0;
+  background: linear-gradient(90deg, #ff6600, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 20px;
   color: #ff6600;
 }
 
+/* SECTIONS */
 .section {
   padding: 120px 20px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(60px);
   transition: all 0.9s ease;
 }
 
@@ -37,54 +60,67 @@ body {
   text-align: center;
 }
 
-h1 {
-  font-size: 54px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+/* GLASS CARD */
+.card {
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.7);
+  border: 2px solid #00bfff;
+  border-radius: 28px;
+  padding: 45px;
+  box-shadow: 0 20px 60px rgba(0,191,255,0.15);
+  margin-top: 40px;
 }
 
+/* INSTALL BUTTON CONTAINER */
+.install-box {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6600, #00bfff);
+  box-shadow: 0 20px 60px rgba(0,191,255,0.3);
+  display: inline-block;
+}
+
+/* TABLE */
+.pin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.pin-table th {
+  background: linear-gradient(90deg, #ff6600, #00bfff);
+  color: white;
+  padding: 16px;
+}
+
+.pin-table td {
+  border: 1px solid #00bfff;
+  padding: 16px;
+  color: #ff6600;
+}
+
+/* TITLES */
 h2 {
-  font-size: 34px;
-  margin-bottom: 25px;
+  font-size: 38px;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #ff6600, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-.card {
-  border: 2px solid #ff6600;
-  border-radius: 25px;
-  padding: 40px;
-  margin-top: 40px;
-}
-
-.install-box {
-  margin-top: 40px;
-}
-
-.pin-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 25px;
-}
-
-.pin-table th, .pin-table td {
-  border: 1px solid #ff6600;
-  padding: 14px;
-  text-align: left;
-}
-
-.pin-table th {
-  background: #ff6600;
-  color: white;
-}
-
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
   font-size: 18px;
+  background: linear-gradient(135deg, #ffffff, #dff3ff);
+  color: #ff6600;
 }
 </style>
 </head>
@@ -92,7 +128,7 @@ footer {
 <body>
 
 <!-- HERO -->
-<div class="section center">
+<div class="hero">
   <h1>PR-TECH BOBO V3</h1>
   <p>Minimal. Smart. Powerful.</p>
   <p>ESP32-C3 Smart OLED System</p>
@@ -104,14 +140,13 @@ footer {
   <p>Flash directly from Google Chrome (PC or Android)</p>
 
   <div class="install-box">
-    <esp-web-install-button manifest="manifest.json">
-    </esp-web-install-button>
+    <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
   </div>
 
-  <p style="margin-top:25px;">Use Chrome Browser Only</p>
+  <p style="margin-top:30px;">Use Chrome Browser Only</p>
 </div>
 
-<!-- DISPLAY SPEC -->
+<!-- DISPLAY -->
 <div class="section">
   <h2>Display Specification</h2>
   <div class="card">
@@ -126,35 +161,37 @@ footer {
 <div class="section">
   <h2>Pin Definitions</h2>
 
-  <table class="pin-table">
-    <tr>
-      <th>Component</th>
-      <th>GPIO</th>
-    </tr>
-    <tr>
-      <td>OLED SDA</td>
-      <td>GPIO 4</td>
-    </tr>
-    <tr>
-      <td>OLED SCL</td>
-      <td>GPIO 5</td>
-    </tr>
-    <tr>
-      <td>Control Button</td>
-      <td>GPIO 3</td>
-    </tr>
-    <tr>
-      <td>VCC</td>
-      <td>3.3V</td>
-    </tr>
-    <tr>
-      <td>GND</td>
-      <td>GND</td>
-    </tr>
-  </table>
+  <div class="card">
+    <table class="pin-table">
+      <tr>
+        <th>Component</th>
+        <th>GPIO</th>
+      </tr>
+      <tr>
+        <td>OLED SDA</td>
+        <td>GPIO 4</td>
+      </tr>
+      <tr>
+        <td>OLED SCL</td>
+        <td>GPIO 5</td>
+      </tr>
+      <tr>
+        <td>Control Button</td>
+        <td>GPIO 3</td>
+      </tr>
+      <tr>
+        <td>VCC</td>
+        <td>3.3V</td>
+      </tr>
+      <tr>
+        <td>GND</td>
+        <td>GND</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
-<!-- BUILD GUIDE -->
+<!-- BUILD -->
 <div class="section">
   <h2>How To Build</h2>
   <div class="card">
