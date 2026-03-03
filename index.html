@@ -63,7 +63,7 @@ body {
 /* GLASS CARD */
 .card {
   backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.75);
   border: 2px solid #00bfff;
   border-radius: 28px;
   padding: 45px;
@@ -74,7 +74,7 @@ body {
 /* INSTALL BUTTON CONTAINER */
 .install-box {
   margin-top: 40px;
-  padding: 30px;
+  padding: 35px;
   border-radius: 30px;
   background: linear-gradient(135deg, #ff6600, #00bfff);
   box-shadow: 0 20px 60px rgba(0,191,255,0.3);
@@ -114,6 +114,12 @@ p {
   line-height: 1.8;
 }
 
+.notice {
+  margin-top: 25px;
+  font-weight: bold;
+  color: #00bfff;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
@@ -137,13 +143,15 @@ footer {
 <!-- INSTALL -->
 <div class="section center">
   <h2>Install Firmware</h2>
-  <p>Flash directly from Google Chrome (PC or Android)</p>
+  <p>Flash directly from a Desktop or Laptop using Google Chrome.</p>
 
   <div class="install-box">
     <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
   </div>
 
-  <p style="margin-top:30px;">Use Chrome Browser Only</p>
+  <div class="notice">
+    PC / Laptop Only • Chrome Browser Required
+  </div>
 </div>
 
 <!-- DISPLAY -->
