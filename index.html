@@ -8,52 +8,71 @@
 <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background: white;
   color: #ff6600;
 }
 
-header {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-header h1 {
-  font-size: 38px;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 18px;
-}
-
-section {
-  max-width: 800px;
+.section {
+  padding: 110px 20px;
+  max-width: 900px;
   margin: auto;
-  padding: 30px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.9s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.center {
+  text-align: center;
+}
+
+h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 34px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .card {
   border: 2px solid #ff6600;
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 25px;
+  border-radius: 22px;
+  padding: 35px;
+  margin-top: 30px;
 }
 
-h2 {
-  margin-top: 0;
+.install-box {
+  margin-top: 40px;
 }
 
 .pin-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 25px;
 }
 
 .pin-table th, .pin-table td {
   border: 1px solid #ff6600;
-  padding: 10px;
+  padding: 14px;
   text-align: left;
 }
 
@@ -62,96 +81,142 @@ h2 {
   color: white;
 }
 
+.preview-box {
+  height: 360px;
+  border: 2px solid #ff6600;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
 footer {
   text-align: center;
-  padding: 40px 20px;
-  font-size: 16px;
+  padding: 80px 20px;
+  font-size: 18px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- HERO -->
+<div class="section center">
   <h1>PR-TECH BOBO V3</h1>
+  <p>Minimal. Smart. Powerful.</p>
   <p>ESP32-C3 Smart OLED System</p>
-</header>
+</div>
 
-<section>
+<!-- BOBO PREVIEW -->
+<div class="section center">
+  <h2>BOBO Preview</h2>
+  <p>Animated SH1106 OLED Smart Display</p>
 
-  <div class="card">
-    <h2>Install Firmware</h2>
-    <p>Flash directly from Google Chrome (PC or Android).</p>
+  <div class="preview-box">
+    BOBO Image Preview Coming Soon
+  </div>
+</div>
 
+<!-- INSTALL -->
+<div class="section center">
+  <h2>Install Firmware</h2>
+  <p>Flash directly from Google Chrome (PC or Android)</p>
+
+  <div class="install-box">
     <esp-web-install-button manifest="manifest.json">
     </esp-web-install-button>
-
-    <p><small>Use Chrome Browser Only</small></p>
   </div>
 
+  <p style="margin-top:25px;">Use Chrome Browser Only</p>
+</div>
+
+<!-- DISPLAY SPEC -->
+<div class="section">
+  <h2>Display Specification</h2>
   <div class="card">
-    <h2>Display Specification</h2>
-    <p>SH1106 OLED Display</p>
-    <p>Size: 1.3 Inch</p>
-    <p>Resolution: 128x64</p>
-    <p>Interface: I2C</p>
+    <p><strong>Model:</strong> SH1106</p>
+    <p><strong>Size:</strong> 1.3 Inch</p>
+    <p><strong>Resolution:</strong> 128x64</p>
+    <p><strong>Interface:</strong> I2C</p>
   </div>
+</div>
 
+<!-- PIN DEFINITIONS -->
+<div class="section">
+  <h2>Pin Definitions</h2>
+
+  <table class="pin-table">
+    <tr>
+      <th>Component</th>
+      <th>GPIO</th>
+    </tr>
+    <tr>
+      <td>OLED SDA</td>
+      <td>GPIO 4</td>
+    </tr>
+    <tr>
+      <td>OLED SCL</td>
+      <td>GPIO 5</td>
+    </tr>
+    <tr>
+      <td>Control Button</td>
+      <td>GPIO 3</td>
+    </tr>
+    <tr>
+      <td>VCC</td>
+      <td>3.3V</td>
+    </tr>
+    <tr>
+      <td>GND</td>
+      <td>GND</td>
+    </tr>
+  </table>
+</div>
+
+<!-- BUILD GUIDE -->
+<div class="section">
+  <h2>How To Build</h2>
   <div class="card">
-    <h2>Pin Definitions (ESP32-C3 Super Mini)</h2>
-
-    <table class="pin-table">
-      <tr>
-        <th>Component</th>
-        <th>GPIO</th>
-      </tr>
-      <tr>
-        <td>OLED SDA</td>
-        <td>GPIO 4</td>
-      </tr>
-      <tr>
-        <td>OLED SCL</td>
-        <td>GPIO 5</td>
-      </tr>
-      <tr>
-        <td>Control Button</td>
-        <td>GPIO 3</td>
-      </tr>
-      <tr>
-        <td>VCC</td>
-        <td>3.3V</td>
-      </tr>
-      <tr>
-        <td>GND</td>
-        <td>GND</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h2>How To Build</h2>
     <ol>
       <li>Connect SH1106 SDA → GPIO 4</li>
       <li>Connect SH1106 SCL → GPIO 5</li>
       <li>Connect Button → GPIO 3</li>
-      <li>Connect VCC → 3.3V and GND → GND</li>
+      <li>Connect 3.3V and GND</li>
       <li>Power ESP32-C3 via USB</li>
-      <li>Click Install Firmware above</li>
-      <li>Done</li>
+      <li>Click Install Firmware</li>
+      <li>System Ready</li>
     </ol>
   </div>
+</div>
 
-  <div class="card">
-    <h2>Firmware Version</h2>
-    <p>BOBO V3.0</p>
-    <p>By PR-TECH</p>
-  </div>
-
-</section>
+<!-- VERSION -->
+<div class="section center">
+  <h2>Firmware</h2>
+  <p>BOBO V3.0</p>
+  <p>Designed by PR-TECH</p>
+</div>
 
 <footer>
 Instagram: @_pr_tech
 </footer>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>
 
 </body>
 </html>
